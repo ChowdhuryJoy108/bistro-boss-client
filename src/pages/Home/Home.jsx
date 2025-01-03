@@ -2,6 +2,7 @@ import Banner from "./HomeComponents/Banner";
 import FeaturedMenu from "./HomeComponents/FeaturedMenu";
 import OurMenu from "./HomeComponents/OurMenu";
 import PopularMenu from "./HomeComponents/PopularMenu";
+import Testimonials from "./HomeComponents/Testimonials";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <OurMenu />
             <FeaturedMenu />
             <PopularMenu />
+            <Testimonials />
         </div>
     );
 };
