@@ -1,4 +1,5 @@
 import Banner from "./HomeComponents/Banner";
+import FeaturedMenu from "./HomeComponents/FeaturedMenu";
 import OurMenu from "./HomeComponents/OurMenu";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Banner />
             <OurMenu />
+            <FeaturedMenu />
         </div>
     );
 };
