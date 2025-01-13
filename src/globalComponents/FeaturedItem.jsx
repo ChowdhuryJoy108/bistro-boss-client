@@ -4,7 +4,7 @@ const FeaturedItem = ({ item }) => {
     <div className="flex w-full mx-auto md:w-[550px] ">
       <div className="flex items-center gap-2">
         <div>
-          <img style={{borderRadius:'0 200px 200px 200px'}} className="w-[100px] h-[80px]" src={image} alt="menu-image" />
+          <img style={{borderRadius:'0 200px 200px 200px'}} className="max-w-[100px] max-h-[80px]" src={image} alt="menu-image" />
         </div>
         <div>
             <h1 className="text-xl uppercase">{name} --------------</h1>

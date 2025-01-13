@@ -1,16 +1,61 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        alert("successfully Logged out!");
+      })
+      .catch((err) => alert("Couldn't Log out"));
+  };
+
   const navLinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/menu">Item 3</NavLink>
+        <NavLink to="/menu">Our Menu</NavLink>
+      </li>
+      <li>
+        <NavLink to="/order/salad">Our Shop</NavLink>
       </li>
     </>
   );
+
+  const accountLinks = (
+    <>
+      {user ? (
+        <>
+          <button
+            onClick={handleLogOut}
+            className="btn btn-outline text-white font-semibold"
+          >
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <Link to="/login">
+            <button className="btn btn-outline text-white font-semibold">
+              Login
+            </button>
+          </Link>
+          <Link to="/register">
+            <button className="btn btn-outline text-white font-semibold">
+              Register
+            </button>
+          </Link>
+        </>
+      )}
+    </>
+  );
+
   return (
     <>
       <div className="fixed z-20 opacity-60 navbar bg-black text-white font-bold max-w-screen-xl mx-auto">
@@ -39,13 +84,15 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl">Bistro Boss</Link>
+          <Link to="/" className="btn btn-ghost text-xl">
+            Bistro Boss
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-2">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <div className="flex items-center gap-2">{accountLinks}</div>
         </div>
       </div>
     </>
